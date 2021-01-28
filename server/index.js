@@ -19,7 +19,11 @@ server.get("/", function (req, res) {
 
 
 server.use(router);
-server.listen(3000, () => {
+
+// HEROKU !!!  xtoni
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
   console.log("JSON Server is running - http://localhost:3000");
 });
 
