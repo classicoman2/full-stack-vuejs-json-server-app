@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "bon dia app!",
+      "contents": "this is my first post"
+    },
+    {
+      "title": "post nou",
+      "contents": "aquest és el meu darrer post",
+      "id": 2
+    }
+  ]
+}
