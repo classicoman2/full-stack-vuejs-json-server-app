@@ -2,7 +2,9 @@
 BACK:  empro [json-server](https://github.com/typicode/json-server) i em baso [en aquest exemple bàsic](https://github.com/typicode/json-server#simple-example)
 
 
+Desplegada a https://vue-json-server-app.herokuapp.com/
 
+Falta ficar VUE.JS a front i generar versió build a dins de '/public' 
 
 
 ## Com desplegar a HEROKU
