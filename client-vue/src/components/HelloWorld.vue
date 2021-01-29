@@ -1,11 +1,22 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-      <ul>
-        <li v-for="post in posts" v-bind:key="post">
-          {{ post.title }}
-        </li>
-      </ul>
+      <table class="table">
+        <thead>
+          <tr>
+           <th scope="col">#</th>
+           <th scope="col">Title</th>
+           <th scope="col">Contents</th>
+         </tr>
+        </thead>
+       <tbody>
+        <tr v-for="post in posts" v-bind:key="post">
+          <th scope="row">{{post.id}}</th>
+          <td>{{post.title}}</td>
+          <td>{{post.contents}}</td>
+        </tr>
+       </tbody>
+     </table>
   </div>
 </template>
 
