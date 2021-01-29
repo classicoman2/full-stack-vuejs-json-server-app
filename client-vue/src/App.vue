@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Prova amb Vue.js" v-bind:posts="posts"/>
   </div>
 </template>
 
@@ -12,6 +12,19 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data: () => {
+    return {
+      posts : []
+    }
+  },
+  mounted() {
+    fetch('http://localhost:3000/posts')
+     .then(response => response.json())
+     .then(data => {
+       this.posts = data 
+       console.log(typeof data)
+      });
   }
 }
 </script>

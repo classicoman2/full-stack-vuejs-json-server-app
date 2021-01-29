@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+      <ul>
+        <li v-for="post in posts" v-bind:key="post">
+          {{ post.title }}
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -8,7 +13,8 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg:String,
+    posts:Array
   }
 }
 </script>
