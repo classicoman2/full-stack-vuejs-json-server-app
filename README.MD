@@ -6,6 +6,10 @@ Desplegada a https://vue-json-server-app.herokuapp.com/
 
 Falta ficar VUE.JS a front i generar versió build a dins de '/public' 
 
+## Postman
+
+[Collection de Postman amb proves en local i en Heroku](https://www.getpostman.com/collections/d3a611a1d40e4ab60ff0)
+
 
 ## Com desplegar a HEROKU
 
