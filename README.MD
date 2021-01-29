@@ -1,3 +1,11 @@
+## TODO
+
+- [ ] Creador de Posts amb textos aleatoris obtinguts de ??
+- [ ] Prettier
+- [ ] Link a VUE CHEAT SHEET / GIST
+- [ ] Link a HEROKU CHEAT SHEET
+- [ ] 
+
 
 BACK:  empro [json-server](https://github.com/typicode/json-server) i em baso [en aquest exemple bàsic](https://github.com/typicode/json-server#simple-example)
 
