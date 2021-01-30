@@ -56,14 +56,13 @@
             type="search"
             placeholder="Search"
             aria-label="Search"
-            v-bind:value="valorFiltre"
+            v-model="valorFiltre"
           />
-          <button
-            v-on:click="filter"
-            class="btn btn-outline-success my-2 my-sm-0"
-          >
-            Filter
-          </button>
+         
+            <router-link :to="{ name: 'filtre', params: { f: valorFiltre } }"
+              >Filtrar</router-link
+            >
+        
         </form>
       </div>
     </nav>
@@ -80,16 +79,7 @@ export default {
     return {
       valorFiltre: "",
     };
-  },
-  methods: {
-    filter: function () {
-//      console.log(document.getElementById("filter").value);
-
-// Event  xtoni
-
-this.$refs.HelloWorld.filterPosts(  document.getElementById("filter").value  );
-},
-  },
+  }
 };
 </script>
 

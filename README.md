@@ -1,5 +1,6 @@
 ## TODO
 
+- [ ] Descarregar `devtooñls` pèr fer debug !!
 - [ ] Component 'add post' amb router
 - [ ] Canviar nom de ' Hello World' a component base
 - [ ] Crear un subcomponent amb els comentaris dels posts, per exemple...

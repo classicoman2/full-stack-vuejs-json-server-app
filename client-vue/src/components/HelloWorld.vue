@@ -46,6 +46,7 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+    f: String,
   },
   data: () => {
     return {
@@ -66,7 +67,10 @@ export default {
       fetch("http://localhost:3000/posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
-          this.posts = data;
+          //Hi ha filtre
+          alert(this.f)
+          if (this.f == null) this.posts = data;
+          else this.posts = data.filter( post => post.title.indexOf(this.f) != -1)
         });
     },
     deletePost: function (id) {
@@ -135,9 +139,9 @@ export default {
       //  console.log(this.posts);
     },
 
-    filterPosts: function(filtre) {
-      this.posts.filter( (post) => post.title.indexOf(filtre) != -1 )
-    }
+    filterPosts: function (filtre) {
+      this.posts.filter((post) => post.title.indexOf(filtre) != -1);
+    },
   },
 };
 </script>
