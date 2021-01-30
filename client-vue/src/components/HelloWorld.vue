@@ -9,7 +9,14 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Title</th>
+          <th scope="col">
+            Title
+            <i
+              v-on:click="orderPosts('desc')"
+              class="bi bi-arrow-down-square"
+            ></i>
+            <i v-on:click="orderPosts('asc')" class="bi bi-arrow-up-square"></i>
+          </th>
           <th scope="col">Contents</th>
         </tr>
       </thead>
@@ -79,22 +86,17 @@ export default {
       let id = Math.floor(Math.random() * 3) + 1;
 
       // Resolem la promesa amb then
-      creaPostiActualitza()
-        .then((response) => response.json())
-        .then((json) => {
-          console.info("Posts actualitzats:", json);
-        })
-        .catch((error) => console.error("Ha passat aquest error:", error));
-
-      async function creaPostiActualitza() {
+      creaPost(this.posts)
+     
+      async function creaPost(posts) {
         // Captura post remot
         const responseGet = await fetch(url + "/" + id);
         const json = await responseGet.json();
-        console.warn(json);
         // Envia POST
+        const post = { title: json.title, contents: json.contents };
         const responsePost = await fetch("http://localhost:3000/posts", {
           method: "POST",
-          body: JSON.stringify({ title: json.title, contents: json.contents }),
+          body: JSON.stringify(post),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
@@ -102,10 +104,29 @@ export default {
         const jsonResposta = await responsePost.json();
         console.info("Post Creat:", jsonResposta);
         //Actualitza
-
-        // Update llistat
-        return fetch('http://localhost:3000/posts');
+        posts.push(post);
+        // Update llistat  xtoni --> DONA ERROR DE FETCH  -- ESTUDIAR PERQUE NO VA BÉ
+        // return fetch("http://localhost:3000/posts");
       }
+    },
+
+    orderPosts: function (order) {
+      let returned = 0;
+      if (order == "desc") returned = -1;
+      else if (order == "asc") returned = 1;
+      else throw new Error("method OrderPosts, invalid parameter");
+
+      this.posts.sort(function (a, b) {
+        if (a.title < b.title) {
+          return returned;
+        }
+        if (a.title > b.title) {
+          return -returned;
+        }
+        return 0;
+      });
+
+      //  console.log(this.posts);
     },
   },
 };
@@ -128,7 +149,8 @@ a {
   color: #42b983;
 }
 
-td.deletePost {
+td.deletePost,
+.bi {
   cursor: pointer;
 }
 </style>

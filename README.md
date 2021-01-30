@@ -1,5 +1,8 @@
 ## TODO
 
+- [ ] Component 'add post' amb router
+- [ ] Canviar nom de ' Hello World' a component base
+- [ ] Crear un subcomponent amb els comentaris dels posts, per exemple...
 - [ ] Creador de Posts amb textos aleatoris obtinguts de ??
 - [ ] Prettier
 - [ ] Link a VUE CHEAT SHEET / GIST
