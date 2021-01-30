@@ -36,8 +36,11 @@ vue create nomcarpetaprojecte
 >[Vue.js](https://vuejs.org/) | [Vue CLI](https://cli.vuejs.org/guide/) | [Vue Router](https://router.vuejs.org/)
 
 ### Vue Router
-```ts
+```bash
+# Install vue router
 npm install vue-router
+# Add router as plugin and modify .js and .vue files implied 
+vue add router
 ```
 
 ## 2. Basics
@@ -92,6 +95,15 @@ Also accepts all JS expressions
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
+### LifeCycle Hooks
+> Els meus favorits: `created()`, `mounted()`
+```ts
+  created: function () {
+    // `this` points to the vm instance
+    console.log('a is: ' + this.a)
+  }`
+```
+
 ## 3. Computed Properties & Watchers
 ### Computed property
 ```ts
@@ -120,7 +132,7 @@ Also accepts all JS expressions
 </div>
 ```
 
-## Events
+## 7. Events
 ### Method Event Handlers
 ```js
 <div id="example-2">
@@ -129,7 +141,15 @@ Also accepts all JS expressions
 </div>
 ```
 
-## Bootstrap
+## 8. Vue Cli
+
+### props
+(pending)
+
+## 9. EXTRA
+
+### Bootstrap
+Install Bootstrap to use w/ Vue CLI:
 ```bash
 # BS CSS i js
 npm i bootstrap
@@ -138,13 +158,14 @@ npm i bootstrap
 ```
 - [Més Info](https://travishorn.com/adding-bootstrap-to-a-vue-cli-project-98c2a30e0ed0)
 ### Bootstrap Icons
+Install Bootstrap Icons to use w/ Vue CLI:
 ```bash
+# A main.js importar fitxer .css corresponent
 npm install --save bootstrap-icons
 ```
-A `main.js` importar fitxer .css corresponent
 
-I a `main.js`, afegir:
-```js
+```bash
+# Afegir a main.js
 import 'bootstrap'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
