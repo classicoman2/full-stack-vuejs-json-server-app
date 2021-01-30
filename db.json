@@ -1,46 +1,6 @@
 {
   "posts": [
     {
-      "title": "New post",
-      "contents": "new new new new...",
-      "id": 8
-    },
-    {
-      "title": "Fa bon dia",
-      "contents": "Avui fa bon dia i fa sol",
-      "id": 13
-    },
-    {
-      "title": "Fa fred",
-      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 22
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 24
-    },
-    {
-      "title": "Fa fred",
-      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 25
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 26
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 27
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 29
-    },
-    {
       "title": "Fa bon dia",
       "contents": "Avui fa bon dia i fa sol",
       "id": 30
@@ -59,6 +19,31 @@
       "title": "Plou i fa vent",
       "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
       "id": 33
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 34
+    },
+    {
+      "title": "Plou i fa vent",
+      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
+      "id": 35
+    },
+    {
+      "title": "Fa bon dia",
+      "contents": "Avui fa bon dia i fa sol",
+      "id": 36
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 37
+    },
+    {
+      "title": "Plou i fa vent",
+      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
+      "id": 38
     }
   ]
 }

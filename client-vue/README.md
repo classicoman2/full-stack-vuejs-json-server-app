@@ -10,15 +10,21 @@
 - [Declarative Rendering](#declarative-rendering)
   * [Component](#component)
   * [Template Syntax](#template-syntax)
+  * [LifeCycle Hooks](#lifecycle-hooks)
 - [3. Computed Properties & Watchers](#3-computed-properties--watchers)
   * [Computed property](#computed-property)
 - [4. Class and Style Bindings](#4-class-and-style-bindings)
 - [5. Conditional Rendering](#5-conditional-rendering)
 - [6. List Rendering](#6-list-rendering)
   * [Maintaining State](#maintaining-state)
-- [Events](#events)
+- [7. Events](#7-events)
   * [Method Event Handlers](#method-event-handlers)
-- [Bootstrap](#bootstrap)
+- [8. Vue Cli](#8-vue-cli)
+  * [props](#props)
+- [9. Vue Router](#9-vue-router)
+  * [Passing props](#passing-props)
+- [10. EXTRA](#10-extra)
+  * [Bootstrap](#bootstrap)
   * [Bootstrap Icons](#bootstrap-icons)
 
 <!-- tocstop -->
@@ -34,14 +40,6 @@ vue create nomcarpetaprojecte
 ```
 ### Docs
 >[Vue.js](https://vuejs.org/) | [Vue CLI](https://cli.vuejs.org/guide/) | [Vue Router](https://router.vuejs.org/)
-
-### Vue Router
-```bash
-# Install vue router
-npm install vue-router
-# Add router as plugin and modify .js and .vue files implied 
-vue add router
-```
 
 ## 2. Basics
 
@@ -146,7 +144,27 @@ Also accepts all JS expressions
 ### props
 (pending)
 
-## 9. EXTRA
+## 9. Vue Router
+```bash
+# Install vue router
+npm install vue-router
+# Add router as plugin and modify .js and .vue files implied 
+vue add router
+```
+### Passing props
+https://router.vuejs.org/guide/essentials/passing-props.html#boolean-mode
+
+### Named Routes
+```ts
+<router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+```
+
+### Programatic navigation
+```ts
+router.push({ name: 'user', params: { userId: '123' } })
+```
+
+## 10. EXTRA
 
 ### Bootstrap
 Install Bootstrap to use w/ Vue CLI:

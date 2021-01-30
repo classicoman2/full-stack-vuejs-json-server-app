@@ -2,9 +2,10 @@
   <div class="hello">
     <!-- Cheat Sheet: Template String -->
     <h1>{{ msg }}</h1>
-    <button v-on:click="addPost" class="btn btn-primary">
+    <button v-on:click="addPost" class="btn btn-primary mb-2">
       Add Post (with random contents)
     </button>
+
     <table class="table">
       <thead>
         <tr>
@@ -26,6 +27,11 @@
           <th scope="row">{{ post.id }}</th>
           <td>{{ post.title }}</td>
           <td>{{ post.contents }}</td>
+          <td>
+            <router-link :to="{ name: 'post', params: { id: post.id } }"
+              >Post</router-link
+            >
+          </td>
           <td v-on:click="deletePost(post.id)">
             <i class="bi bi-trash-fill"></i>
           </td>
@@ -86,8 +92,8 @@ export default {
       let id = Math.floor(Math.random() * 3) + 1;
 
       // Resolem la promesa amb then
-      creaPost(this.posts)
-     
+      creaPost(this.posts);
+
       async function creaPost(posts) {
         // Captura post remot
         const responseGet = await fetch(url + "/" + id);
@@ -104,7 +110,7 @@ export default {
         const jsonResposta = await responsePost.json();
         console.info("Post Creat:", jsonResposta);
         //Actualitza
-        posts.push(post);
+        posts.push(jsonResposta);
         // Update llistat  xtoni --> DONA ERROR DE FETCH  -- ESTUDIAR PERQUE NO VA BÉ
         // return fetch("http://localhost:3000/posts");
       }
@@ -128,6 +134,10 @@ export default {
 
       //  console.log(this.posts);
     },
+
+    filterPosts: function(filtre) {
+      this.posts.filter( (post) => post.title.indexOf(filtre) != -1 )
+    }
   },
 };
 </script>
