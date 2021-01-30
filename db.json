@@ -2,13 +2,38 @@
   "posts": [
     {
       "title": "New post",
-      "description": "new new new new...",
-      "id": 3
+      "contents": "new new new new...",
+      "id": 8
     },
     {
-      "title": "New post",
-      "description": "new new new new...",
-      "id": 5
+      "title": "Fa bon dia",
+      "contents": "Avui fa bon dia i fa sol",
+      "id": 13
+    },
+    {
+      "title": "Plou i fa vent",
+      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
+      "id": 15
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 19
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 20
+    },
+    {
+      "title": "Plou i fa vent",
+      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
+      "id": 21
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 22
     }
   ]
 }
