@@ -9,12 +9,14 @@
     "json-server": "^0.16.3"
   },
   "devDependencies": {
+    "markdown-toc": "^1.2.0",
     "nodemon": "^2.0.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server/index.js",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "toc": "markdown-toc -i README.md"
   },
   "keywords": [],
   "author": "",
