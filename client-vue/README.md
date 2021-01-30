@@ -2,7 +2,26 @@
 
 ## Index
 
-(pendent__)
+<!-- toc -->
+
+- [1. Start](#1-start)
+  * [Docs](#docs)
+- [2. Basics](#2-basics)
+- [Declarative Rendering](#declarative-rendering)
+  * [Component](#component)
+  * [Template Syntax](#template-syntax)
+- [3. Computed Properties & Watchers](#3-computed-properties--watchers)
+  * [Computed property](#computed-property)
+- [4. Class and Style Bindings](#4-class-and-style-bindings)
+- [5. Conditional Rendering](#5-conditional-rendering)
+- [6. List Rendering](#6-list-rendering)
+  * [Maintaining State](#maintaining-state)
+- [Events](#events)
+  * [Method Event Handlers](#method-event-handlers)
+- [Bootstrap](#bootstrap)
+  * [Bootstrap Icons](#bootstrap-icons)
+
+<!-- tocstop -->
 
 ## 1. Start
 Instal·la Vue,
@@ -14,7 +33,12 @@ Crea aplicacio vue cli,
 vue create nomcarpetaprojecte
 ```
 ### Docs
-[Vue.js](https://vuejs.org/) i [Vue CLI](https://cli.vuejs.org/guide/)
+>[Vue.js](https://vuejs.org/) | [Vue CLI](https://cli.vuejs.org/guide/) | [Vue Router](https://router.vuejs.org/)
+
+### Vue Router
+```ts
+npm install vue-router
+```
 
 ## 2. Basics
 
@@ -68,7 +92,25 @@ Also accepts all JS expressions
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
-## 3. List Rendering
+## 3. Computed Properties & Watchers
+### Computed property
+```ts
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+```
+
+## 4. Class and Style Bindings
+(pending)
+
+## 5. Conditional Rendering
+(pending) 
+
+## 6. List Rendering
 
 ### Maintaining State
 > [more](https://vuejs.org/v2/guide/list.html#Maintaining-State)
