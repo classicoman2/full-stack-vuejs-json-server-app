@@ -151,8 +151,15 @@ npm install vue-router
 # Add router as plugin and modify .js and .vue files implied 
 vue add router
 ```
-### Passing props
-https://router.vuejs.org/guide/essentials/passing-props.html#boolean-mode
+### Dynamic Route Matching
+#### Reacting to Params Changes
+```ts
+ watch: {
+    $route(to, from) {
+      // react to route changes...
+    }
+  }
+```
 
 ### Named Routes
 ```ts
@@ -162,6 +169,13 @@ https://router.vuejs.org/guide/essentials/passing-props.html#boolean-mode
 ### Programatic navigation
 ```ts
 router.push({ name: 'user', params: { userId: '123' } })
+```
+
+### Passing props to Route Components
+```ts
+const router = new VueRouter({
+  routes: [{ path: '/user/:id', component: User }]
+})
 ```
 
 ## 10. EXTRA

@@ -48,6 +48,15 @@ export default {
     msg: String,
     f: String,
   },
+  watch: {
+    $route(to, from) {
+      console.info("to = ", to)
+      console.info("from = ", from)
+      // get filtre
+      let filtre = to.params.f
+      this.getPosts(filtre);
+    }
+  },
   data: () => {
     return {
       posts: [],
@@ -60,17 +69,23 @@ export default {
   },
   mounted() {
     // Carrega posts
-    this.getPosts();
+    this.getPosts(' ');
+  },
+  beforeUpdated() {
+    //this.getPosts();
+  },
+  updated() {
+    //this.getPosts();
   },
   methods: {
-    getPosts: function () {
+    getPosts: function (filtre) {
       fetch("http://localhost:3000/posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
           //Hi ha filtre
-          alert(this.f)
-          if (this.f == null) this.posts = data;
-          else this.posts = data.filter( post => post.title.indexOf(this.f) != -1)
+          console.log(filtre)
+          if (filtre == " ") this.posts = data;
+          else this.posts = data.filter( post => post.title.indexOf(filtre) != -1)
         });
     },
     deletePost: function (id) {
