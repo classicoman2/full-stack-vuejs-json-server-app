@@ -6,7 +6,7 @@
       Add Post (with random contents)
     </button>
 
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>

@@ -8,15 +8,21 @@
   * [Docs](#docs)
 - [2. Basics](#2-basics)
 - [Declarative Rendering](#declarative-rendering)
-  * [Component](#component)
+  * [Component (Vue CLI)](#component-vue-cli)
   * [Template Syntax](#template-syntax)
   * [LifeCycle Hooks](#lifecycle-hooks)
 - [3. Computed Properties & Watchers](#3-computed-properties--watchers)
   * [Computed property](#computed-property)
 - [4. Class and Style Bindings](#4-class-and-style-bindings)
 - [5. Conditional Rendering](#5-conditional-rendering)
+  * [Conditional groups with \](#conditional-groups-with-)
+  * [v-else](#v-else)
+  * [v-show](#v-show)
 - [6. List Rendering](#6-list-rendering)
-  * [Maintaining State](#maintaining-state)
+  * [Basic](#basic)
+  * [index Argument](#index-argument)
+  * [v-for with an Object](#v-for-with-an-object)
+  * [key](#key)
 - [7. Events](#7-events)
   * [Method Event Handlers](#method-event-handlers)
 - [8. Vue Cli](#8-vue-cli)
@@ -62,7 +68,7 @@ var app = new Vue({
 })
 ```
 
-### Component
+### Component (Vue CLI)
 ```ts
 export default {
   name: 'App',
@@ -122,12 +128,69 @@ Also accepts all JS expressions
 (pending)
 
 ## 5. Conditional Rendering
-(pending) 
+The block will only be rendered if the directive’s expression returns a truthy value.
+> [more](https://vuejs.org/v2/guide/conditional.html)
+```ts
+<div id="app-3">
+  <span v-if="seen">Now you see me</span>
+</div>
+```
+
+### Conditional groups with \<template>
+```ts
+<template v-if="ok">
+  <h1>Title</h1>
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</template>
+```
+
+### v-else
+```ts
+<div v-if="Math.random() > 0.5">
+  Now you see me
+</div>
+<div v-else>
+  Now you dont
+</div>
+```
+
+### v-show
+The usage is very similar to __v-if__, the difference is that an element with v-show will always be rendered and remain in the DOM; v-show only toggles the display CSS property of the element
+```ts
+<h1 v-show="ok">Hello!</h1>
+```
 
 ## 6. List Rendering
-
-### Maintaining State
 > [more](https://vuejs.org/v2/guide/list.html#Maintaining-State)
+
+### Basic
+```ts
+<div v-for="item in items" v-bind:key="item.id">
+  {{ item.message }}
+</div>
+```
+
+### index Argument
+```ts
+<ul>
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+```
+
+### v-for with an Object
+```ts
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+```
+
+### key
+It is recommended to provide a key attribute with v-for whenever possible for [maintaining-state](https://vuejs.org/v2/guide/list.html#Maintaining-State) reasons
 ```ts
 <div v-for="item in items" v-bind:key="item.id">
   <!-- content -->
