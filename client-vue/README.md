@@ -6,8 +6,12 @@
 
 - [1. Start](#1-start)
   * [Docs](#docs)
+  * [Extensions](#extensions)
 - [2. Basics](#2-basics)
 - [Declarative Rendering](#declarative-rendering)
+  * [Inside an element](#inside-an-element)
+  * [Inside an attribute](#inside-an-attribute)
+  * [two-way Binding](#two-way-binding)
   * [Component (Vue CLI)](#component-vue-cli)
   * [Template Syntax](#template-syntax)
   * [LifeCycle Hooks](#lifecycle-hooks)
@@ -58,6 +62,8 @@ vue create nomcarpetaprojecte
 ## 2. Basics
 
 ## Declarative Rendering
+
+### Inside an element
 ```html
 <div id="app">
   {{ message }}
@@ -70,6 +76,27 @@ var app = new Vue({
     message: 'Hello Vue!'
   }
 })
+```
+
+### Inside an attribute
+In addition to text interpolation, we can also [bind element attributes](https://vuejs.org/v2/guide/#Declarative-Rendering):
+```ts
+<div>
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+```
+
+### two-way Binding
+[Only with \<input>, \<select> or \<textarea>](https://vuejs.org/v2/api/#v-model) 
+> [more](https://vuejs.org/v2/guide/#Handling-User-Input)
+```ts
+<div ">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
 ```
 
 ### Component (Vue CLI)
