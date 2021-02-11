@@ -51,6 +51,10 @@ vue create nomcarpetaprojecte
 ### Docs
 >[Vue.js](https://vuejs.org/) | [Vue CLI](https://cli.vuejs.org/guide/) | [Vue Router](https://router.vuejs.org/)
 
+### Extensions
+* [__Vetur__ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+* __Vue.js Devtools__ for [Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) and [Mozilla](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+
 ## 2. Basics
 
 ## Declarative Rendering
