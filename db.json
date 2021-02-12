@@ -8,60 +8,12 @@
         {
           "user": "abc",
           "contents": "fdasdf"
-        }
-      ]
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 35
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 39,
-      "comments": [
-        {
-          "user": "dfsadfdfasdfs",
-          "contents": "dfasdfsdfadfsdfs"
-        },
-        {
-          "user": "fdsadf",
-          "contents": "dfasfd"
-        },
-        {
-          "user": "aaaaa",
-          "contents": "bbbbbbb"
-        },
-        {
-          "user": "",
-          "contents": ""
         },
         {
           "user": "pepe",
-          "contents": "gran comentari!"
+          "contents": "bona idea"
         }
       ]
-    },
-    {
-      "title": "Fa bon dia",
-      "contents": "Avui fa bon dia i fa sol",
-      "id": 40
-    },
-    {
-      "title": "Fa fred",
-      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 41
-    },
-    {
-      "title": "Fa fred",
-      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 43
-    },
-    {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 44
     },
     {
       "title": "Fa fred",
@@ -69,9 +21,14 @@
       "id": 45
     },
     {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 47
+    },
+    {
       "title": "Fa bon dia",
       "contents": "Avui fa bon dia i fa sol",
-      "id": 46
+      "id": 49
     }
   ]
 }

@@ -354,6 +354,7 @@ vue add router
 <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
 ```
 
+
 ### Programatic navigation
 ```ts
 router.push({ name: 'user', params: { userId: '123' } })
