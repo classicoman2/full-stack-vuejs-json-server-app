@@ -8,28 +8,28 @@
   * [Docs](#docs)
   * [Extensions](#extensions)
 - [2. Basics](#2-basics)
-- [Declarative Rendering](#declarative-rendering)
-  * [Inside an element](#inside-an-element)
-  * [Inside an attribute](#inside-an-attribute)
-  * [two-way Binding](#two-way-binding)
-  * [Component (Vue CLI)](#component-vue-cli)
+  * [Declarative Rendering](#declarative-rendering)
+    + [Interpolation inside a tag](#interpolation-inside-a-tag)
+    + [v-bind: Interpolation inside an attribute](#v-bind-interpolation-inside-an-attribute)
+    + [v-model: two-way Binding](#v-model-two-way-binding)
   * [Template Syntax](#template-syntax)
+  * [Methods](#methods)
   * [LifeCycle Hooks](#lifecycle-hooks)
-- [3. Computed Properties & Watchers](#3-computed-properties--watchers)
-  * [Computed property](#computed-property)
-- [4. Class and Style Bindings](#4-class-and-style-bindings)
-- [5. Conditional Rendering](#5-conditional-rendering)
-  * [Conditional groups with \](#conditional-groups-with-)
+- [3. Conditional Rendering](#3-conditional-rendering)
+  * [Conditional groups with template](#conditional-groups-with-template)
   * [v-else](#v-else)
   * [v-show](#v-show)
-- [6. List Rendering](#6-list-rendering)
+- [4. List Rendering](#4-list-rendering)
   * [Basic](#basic)
   * [index Argument](#index-argument)
   * [v-for with an Object](#v-for-with-an-object)
   * [key](#key)
+- [5. Computed Properties & Watchers](#5-computed-properties--watchers)
+  * [Computed property](#computed-property)
+- [4. Class and Style Bindings](#4-class-and-style-bindings)
 - [7. Events](#7-events)
   * [Method Event Handlers](#method-event-handlers)
-- [8. Vue Cli](#8-vue-cli)
+- [8. Creating Components](#8-creating-components)
   * [props](#props)
 - [9. Vue Router](#9-vue-router)
   * [Dynamic Route Matching](#dynamic-route-matching)
@@ -61,14 +61,17 @@ vue create nomcarpetaprojecte
 
 ## 2. Basics
 
-## Declarative Rendering
+### Declarative Rendering
 
-### Inside an element
+#### Interpolation inside a tag
 ```html
-<div id="app">
+<div>
   {{ message }}
 </div>
 ```
+
+> Data declaration: Versió bàsica de Vue.js (CDN Vue)
+
 ```ts
 var app = new Vue({
   el: '#app',
@@ -78,28 +81,7 @@ var app = new Vue({
 })
 ```
 
-### Inside an attribute
-In addition to text interpolation, we can also [bind element attributes](https://vuejs.org/v2/guide/#Declarative-Rendering):
-```ts
-<div>
-  <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
-  </span>
-</div>
-```
-
-### two-way Binding
-[Only with \<input>, \<select> or \<textarea>](https://vuejs.org/v2/api/#v-model) 
-> [more](https://vuejs.org/v2/guide/#Handling-User-Input)
-```ts
-<div ">
-  <p>{{ message }}</p>
-  <input v-model="message">
-</div>
-```
-
-### Component (Vue CLI)
+> Data declaration a Vue CLI
 ```ts
 export default {
   name: 'App',
@@ -112,12 +94,33 @@ export default {
     }
   }
 ```
+
+#### v-bind: Interpolation inside an attribute
+We can also [bind element attributes](https://vuejs.org/v2/guide/#Declarative-Rendering):
+```ts
+<div>
+  <span v-bind:title="message">
+    This is a message
+  </span>
+</div>
+```
+
+#### v-model: two-way Binding
+[Only with \<input>, \<select> or \<textarea>](https://vuejs.org/v2/api/#v-model) 
+> [more](https://vuejs.org/v2/guide/#Handling-User-Input)
+```ts
+<div ">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+```
+
 ### Template Syntax
-> Text
+> (ja vist) Text interpolation
 ```ts
 <span>Message: {{ msg }}</span>
 ```
-Also accepts all JS expressions
+Also accepts all JS expressions, functions...
 ```ts
 <span>Message: {{ 10 + 5 }}</span>
 ```
@@ -134,6 +137,25 @@ Also accepts all JS expressions
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
+### Methods
+> Mètodes privats per un component
+```ts
+export default {
+  name: 'foo',
+  data: () => {
+    return {
+      name: 'John'
+    }
+  }
+  methods: {
+    greet: function () {
+      // `this` inside methods point to the Vue instance
+      alert('Hello ' + this.name + '!')
+    }
+  }
+}
+```
+
 ### LifeCycle Hooks
 > Els meus favorits: `created()`, `mounted()`
 ```ts
@@ -143,22 +165,8 @@ Also accepts all JS expressions
   }`
 ```
 
-## 3. Computed Properties & Watchers
-### Computed property
-```ts
-  computed: {
-    // a computed getter
-    reversedMessage: function () {
-      // `this` points to the vm instance
-      return this.message.split('').reverse().join('')
-    }
-  }
-```
 
-## 4. Class and Style Bindings
-(pending)
-
-## 5. Conditional Rendering
+## 3. Conditional Rendering
 The block will only be rendered if the directive’s expression returns a truthy value.
 > [more](https://vuejs.org/v2/guide/conditional.html)
 ```ts
@@ -167,7 +175,7 @@ The block will only be rendered if the directive’s expression returns a truthy
 </div>
 ```
 
-### Conditional groups with \<template>
+### Conditional groups with template
 ```ts
 <template v-if="ok">
   <h1>Title</h1>
@@ -192,7 +200,8 @@ The usage is very similar to __v-if__, the difference is that an element with v-
 <h1 v-show="ok">Hello!</h1>
 ```
 
-## 6. List Rendering
+
+## 4. List Rendering
 > [more](https://vuejs.org/v2/guide/list.html#Maintaining-State)
 
 ### Basic
@@ -228,6 +237,25 @@ It is recommended to provide a key attribute with v-for whenever possible for [m
 </div>
 ```
 
+
+
+## 5. Computed Properties & Watchers
+### Computed property
+```ts
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+```
+
+## 4. Class and Style Bindings
+(pending)
+
+
+
 ## 7. Events
 ### Method Event Handlers
 ```js
@@ -237,7 +265,7 @@ It is recommended to provide a key attribute with v-for whenever possible for [m
 </div>
 ```
 
-## 8. Vue Cli
+## 8. Creating Components
 
 ### props
 (pending)

@@ -50,12 +50,12 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.info("to = ", to)
-      console.info("from = ", from)
+      console.info("to = ", to);
+      console.info("from = ", from);
       // get filtre
-      let filtre = to.params.f
+      let filtre = to.params.f;
       this.getPosts(filtre);
-    }
+    },
   },
   data: () => {
     return {
@@ -69,7 +69,7 @@ export default {
   },
   mounted() {
     // Carrega posts
-    this.getPosts(' ');
+    this.getPosts(" ");
   },
   beforeUpdated() {
     //this.getPosts();
@@ -83,9 +83,12 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           //Hi ha filtre
-          console.log(filtre)
+          console.log(filtre);
           if (filtre == " ") this.posts = data;
-          else this.posts = data.filter( post => post.title.indexOf(filtre) != -1)
+          else
+            this.posts = data.filter(
+              (post) => post.title.indexOf(filtre) != -1
+            );
         });
     },
     deletePost: function (id) {

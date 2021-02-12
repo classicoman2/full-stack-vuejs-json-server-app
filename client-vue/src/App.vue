@@ -57,11 +57,10 @@
             aria-label="Search"
             v-model="valorFiltre"
           />
-         
-            <router-link :to="{ name: 'filtre', params: { f: valorFiltre } }"
-              >Filtrar</router-link
-            >
-        
+
+          <router-link :to="{ name: 'filtre', params: { f: valorFiltre } }"
+            >Filtrar</router-link
+          >
         </form>
       </div>
     </nav>
@@ -78,7 +77,7 @@ export default {
     return {
       valorFiltre: "",
     };
-  }
+  },
 };
 </script>
 
