@@ -25,8 +25,10 @@
         <!-- Cheat Sheet: maintaining state -->
         <tr v-for="post in postsUpdated" v-bind:key="post.id">
           <th scope="row">{{ post.id }}</th>
-          <td>{{ post.title }}</td>
-          <td>{{ post.contents }}</td>
+          <td><b>{{ post.title }}</b></td>
+          <td>
+            <span>{{ post.contents }}</span>
+          </td>
           <td>
             <router-link :to="{ name: 'post', params: { id: post.id } }"
               >Post</router-link

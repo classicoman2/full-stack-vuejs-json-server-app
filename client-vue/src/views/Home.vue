@@ -8,18 +8,18 @@
         src="../assets/bootstrap-social-logo.png"
       />
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js + Bootstrap 4 App" />
+    <MainPage msg="Welcome to Your Vue.js + Bootstrap 4 App" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import MainPage from "@/components/MainPage.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    MainPage,
   },
 };
 </script>

@@ -26,7 +26,14 @@
   * [key](#key)
 - [5. Computed Properties & Watchers](#5-computed-properties--watchers)
   * [Computed property](#computed-property)
-- [4. Class and Style Bindings](#4-class-and-style-bindings)
+  * [Why not use a simple Method?](#why-not-use-a-simple-method)
+  * [Computed vs. Watch](#computed-vs-watch)
+  * [Watchers](#watchers)
+- [6. Class and Style Bindings](#6-class-and-style-bindings)
+  * [Object Syntax](#object-syntax)
+    + [Basic](#basic-1)
+    + [Multiple](#multiple)
+    + [Array Syntax](#array-syntax)
 - [7. Events](#7-events)
   * [Method Event Handlers](#method-event-handlers)
 - [8. Creating Components](#8-creating-components)
@@ -37,9 +44,9 @@
   * [Named Routes](#named-routes)
   * [Programatic navigation](#programatic-navigation)
   * [Passing props to Route Components](#passing-props-to-route-components)
-- [10. EXTRA](#10-extra)
+- [10. Slots](#10-slots)
+- [EXTRA](#extra)
   * [Bootstrap](#bootstrap)
-  * [Bootstrap Icons](#bootstrap-icons)
 
 <!-- tocstop -->
 
@@ -241,19 +248,74 @@ It is recommended to provide a key attribute with v-for whenever possible for [m
 
 ## 5. Computed Properties & Watchers
 ### Computed property
+> More [here](https://vuejs.org/v2/guide/computed.html#Basic-Example)
+
 ```ts
-  computed: {
-    // a computed getter
-    reversedMessage: function () {
-      // `this` points to the vm instance
-      return this.message.split('').reverse().join('')
+<template>
+  <div>
+    <p>{{greet}}</p>
+  </div>
+</template>
+
+export default {
+  name: 'foo',
+  data: () => {
+    return {
+      name: 'John'
     }
   }
+  methods: {
+    greet: function () {
+      // `this` inside methods point to the Vue instance
+      return 'Hello ' + this.name + '!'
+    }
+  }
+}
 ```
 
-## 4. Class and Style Bindings
-(pending)
+### Why not use a simple Method?
 
+> The [advantage of Computed Properties over simple Method invocation](https://vuejs.org/v2/guide/computed.html#Computed-Caching-vs-Methods) is that
+1. Computed properties are cached based on their reactive dependencies
+2. A computed property will only re-evaluate when some of its reactive dependencies have changed
+3. E.g: The reactive dependency of `greet` method is the property `name`
+
+### Computed vs. Watch
+
+> You can also use [watch](https://vuejs.org/v2/guide/computed.html#Computed-vs-Watched-Property) as in __Angular.js__
+
+### Watchers
+> No els veurem. Permeten reaccionar a canvis en un camp d'entrada.
+> [more here](https://vuejs.org/v2/guide/computed.html#Watchers)
+
+
+
+## 6. Class and Style Bindings
+### Object Syntax
+> [more](https://vuejs.org/v2/guide/class-and-style.html#Object-Syntax)
+
+#### Basic
+```ts
+<div v-bind:class="{ active: isActive }"></div>
+```
+
+#### Multiple
+```ts
+<div
+  class="static"
+  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+></div>
+```
+
+#### Array Syntax
+> [more](https://vuejs.org/v2/guide/class-and-style.html#Array-Syntax)
+```ts
+<div v-bind:class="[activeClass, errorClass]"></div>
+data: {
+  activeClass: 'active',
+  errorClass: 'text-danger'
+}
+```
 
 
 ## 7. Events
@@ -304,7 +366,11 @@ const router = new VueRouter({
 })
 ```
 
-## 10. EXTRA
+## 10. Slots
+(pending)
+> [more](https://vuejs.org/v2/guide/components-slots.html)
+
+## EXTRA
 
 ### Bootstrap
 Install Bootstrap to use w/ Vue CLI:
@@ -315,18 +381,4 @@ npm i bootstrap
 (pendent)
 ```
 - [Més Info](https://travishorn.com/adding-bootstrap-to-a-vue-cli-project-98c2a30e0ed0)
-### Bootstrap Icons
-Install Bootstrap Icons to use w/ Vue CLI:
-```bash
-# A main.js importar fitxer .css corresponent
-npm install --save bootstrap-icons
-```
-
-```bash
-# Afegir a main.js
-import 'bootstrap'; 
-import 'bootstrap/dist/css/bootstrap.min.css';
-```
-
-
 
