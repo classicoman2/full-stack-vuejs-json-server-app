@@ -285,7 +285,7 @@ export default {
 > You can also use [watch](https://vuejs.org/v2/guide/computed.html#Computed-vs-Watched-Property) as in __Angular.js__
 
 ### Watchers
-> No els veurem. Permeten reaccionar a canvis en un camp d'entrada.
+> Els _Watchers_ permeten reaccionar a canvis en un camp d'entrada
 > [more here](https://vuejs.org/v2/guide/computed.html#Watchers)
 
 
@@ -319,12 +319,29 @@ data: {
 
 
 ## 7. Events
-### Method Event Handlers
+
+### Click Event Handler
 ```js
 <div id="example-2">
   <!-- `greet` is the name of a method defined below -->
   <button v-on:click="greet">Greet</button>
 </div>
+```
+
+### Inline handler
+```ts
+<div id="example-3">
+  <button v-on:click="say('hi')">Say hi</button>
+</div>
+```
+
+### Key Modifiers
+> [more](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
+```ts
+<!-- Qualsevol tecla>
+<input v-on:keyup="teclaEspitjada">
+<!-- Una tecla en concret>
+<input v-on:keyup.enter="enterKey">
 ```
 
 ## 8. Creating Components
@@ -373,6 +390,10 @@ const router = new VueRouter({
 
 ## EXTRA
 
+### Tricks & Hacks
+* [Prevent a form from submitting](https://stackoverflow.com/questions/51642232/prevent-form-default-behavior-in-vue-js)
+* [Webpack i SASS: problema amb versió 11 de node-sass: solved](https://exerror.com/typeerror-this-getoptions-is-not-a-function-in-vue-js/)
+
 ### Bootstrap
 Install Bootstrap to use w/ Vue CLI:
 ```bash
@@ -382,4 +403,13 @@ npm i bootstrap
 (pendent)
 ```
 - [Més Info](https://travishorn.com/adding-bootstrap-to-a-vue-cli-project-98c2a30e0ed0)
+
+### Webpack
+
+
+### Vuex
+
+npm install vuex --save
+
+https://medium.com/js-dojo/vuex-and-vue-bread-and-butter-4519a21e95ce
 

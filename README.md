@@ -1,14 +1,14 @@
 ## TODO
 
-- [ ] Descarregar `devtooñls` pèr fer debug !!
-- [ ] Component 'add post' amb router
-- [ ] Canviar nom de ' Hello World' a component base
-- [ ] Crear un subcomponent amb els comentaris dels posts, per exemple...
-- [ ] Creador de Posts amb textos aleatoris obtinguts de ??
-- [ ] Prettier
-- [ ] Link a VUE CHEAT SHEET / GIST
+### Client
+- [x] Filtrar en clicar ENTER en camp de Filtre: és necessari 1) Crear component amb barra navegació (si no es complica molt) i 2) Emprar Programmatic Navigation (Vue Router)
+- [x] Crear component HEADER
+- [ ] Crear component FOOTER que quedi "enganxat" a la part de sota
+- [ ] Prettier vs. Vetur ?
+
+### Server etc
 - [ ] Link a HEROKU CHEAT SHEET
-- [ ] 
+
 
 
 BACK:  empro [json-server](https://github.com/typicode/json-server) i em baso [en aquest exemple bàsic](https://github.com/typicode/json-server#simple-example)

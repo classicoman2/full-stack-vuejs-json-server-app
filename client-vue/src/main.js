@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-//xtoni bootstrap
+
+//xtoni bootstrap BÀSIC
+/*
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+*/
 
-// bootstrap icons
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "./scss/custom.scss";
+import "bootstrap/scss/bootstrap.scss";
 
 import router from './router'
+
+//vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 Vue.config.productionTip = false
 

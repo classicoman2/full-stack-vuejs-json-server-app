@@ -52,7 +52,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Post",
   props: {
     id: String,
   },

@@ -25,7 +25,9 @@
         <!-- Cheat Sheet: maintaining state -->
         <tr v-for="post in postsUpdated" v-bind:key="post.id">
           <th scope="row">{{ post.id }}</th>
-          <td><b>{{ post.title }}</b></td>
+          <td>
+            <b>{{ post.title }}</b>
+          </td>
           <td>
             <span>{{ post.contents }}</span>
           </td>
@@ -45,7 +47,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "MainPage",
   props: {
     msg: String,
     f: String,
@@ -72,6 +74,12 @@ export default {
   mounted() {
     // Carrega posts
     this.getPosts(" ");
+
+    //captura event
+    this.$on("filterEvent", () => {
+      console.log("aaa")
+      //this.filterPosts(valorFiltre);
+    });
   },
   beforeUpdated() {
     //this.getPosts();

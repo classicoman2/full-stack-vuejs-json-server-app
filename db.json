@@ -3,32 +3,33 @@
     {
       "title": "Plou i fa vent",
       "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 31,
+      "id": 1
+    },
+    {
+      "title": "Fa bon dia",
+      "contents": "Avui fa bon dia i fa sol",
+      "id": 4
+    },
+    {
+      "title": "Plou i fa vent",
+      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
+      "id": 8,
       "comments": [
         {
-          "user": "abc",
-          "contents": "fdasdf"
-        },
-        {
-          "user": "pepe",
-          "contents": "bona idea"
+          "user": "kj",
+          "contents": "jk"
         }
       ]
     },
     {
       "title": "Fa fred",
       "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 45
-    },
-    {
-      "title": "Fa fred",
-      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
-      "id": 47
+      "id": 9
     },
     {
       "title": "Fa bon dia",
       "contents": "Avui fa bon dia i fa sol",
-      "id": 49
+      "id": 10
     }
   ]
 }
