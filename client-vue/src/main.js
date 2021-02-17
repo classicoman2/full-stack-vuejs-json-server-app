@@ -16,12 +16,13 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import router from './router'
 
 //vuex
-import Vuex from 'vuex'
-Vue.use(Vuex)
+import store from './store'
+
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,  //vuex
   render: h => h(App)
 }).$mount('#app')

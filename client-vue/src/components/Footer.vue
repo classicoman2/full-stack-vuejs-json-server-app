@@ -1,7 +1,8 @@
 <template>
   <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-      <span>Place sticky footer content here.</span>
+      <span class="mx-1">{{ name }}</span
+      >-<span class="mx-1">{{ year }}</span>
     </div>
   </footer>
 </template>
@@ -11,15 +12,32 @@
 export default {
   name: "Footer",
   props: {},
+  data: function () {
+    return {
+      name: "",
+      year: 0,
+    };
+  },
+
+  //Using vuex
+  mounted: function () {
+    this.name = this.$store.getters.getName;
+    this.year = this.$store.getters.getYear;
+
+    /*
+    this.$store.commit("increment");
+    this.$store.commit("increment");
+
+    console.log(this.$store.state.count); // -> 1
+    */
+  },
 };
 </script>
 
 
 <style lang="scss">
-
 footer {
   position: fixed;
-  height: 100px;
   bottom: 0;
   width: 100%;
   span {

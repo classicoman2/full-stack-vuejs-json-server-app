@@ -460,8 +460,11 @@ npm i bootstrap
 
 
 ### Vuex
-
+> [Setting up Vuex with Vue CLI 3](https://dev.to/abhisheksarmah/setting-up-vuex-state-management-with-vue-cli-3-3ne9)
+> [more](https://vuex.vuejs.org/guide/)
+```bash
 npm install vuex --save
+```
 
-https://medium.com/js-dojo/vuex-and-vue-bread-and-butter-4519a21e95ce
+
 
