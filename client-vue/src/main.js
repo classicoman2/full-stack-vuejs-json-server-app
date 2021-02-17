@@ -8,7 +8,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 */
 
-import "./scss/custom.scss";
 import "bootstrap/scss/bootstrap.scss";
 
 import "bootstrap-icons/font/bootstrap-icons.css"

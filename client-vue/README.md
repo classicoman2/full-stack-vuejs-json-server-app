@@ -421,6 +421,18 @@ const router = new VueRouter({
 * [Prevent a form from submitting](https://stackoverflow.com/questions/51642232/prevent-form-default-behavior-in-vue-js)
 * [Webpack i SASS: problema amb versió 11 de node-sass: solved](https://exerror.com/typeerror-this-getoptions-is-not-a-function-in-vue-js/)
 
+### Sass/SCSS
+Instal·la,
+```bash
+npm install -D sass-loader sass
+```
+
+i en components, empra
+```html
+<style lang="scss">
+...
+```
+
 ### Bootstrap
 Install Bootstrap to use w/ Vue CLI:
 ```bash
