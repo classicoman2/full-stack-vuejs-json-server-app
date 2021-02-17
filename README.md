@@ -1,9 +1,10 @@
 ## TODO
 
 ### Client
+- [ ] _Bootstrap Theming_ amb __Webpack__
 - [x] Filtrar en clicar ENTER en camp de Filtre: és necessari 1) Crear component amb barra navegació (si no es complica molt) i 2) Emprar Programmatic Navigation (Vue Router)
 - [x] Crear component HEADER
-- [ ] Crear component FOOTER que quedi "enganxat" a la part de sota
+- [x] Crear component FOOTER - sticky amb Bootstrap
 - [ ] Prettier vs. Vetur ?
 
 ### Server etc

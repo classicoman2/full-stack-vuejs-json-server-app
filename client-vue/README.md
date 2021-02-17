@@ -35,8 +35,11 @@
     + [Multiple](#multiple)
     + [Array Syntax](#array-syntax)
 - [7. Events](#7-events)
-  * [Method Event Handlers](#method-event-handlers)
+  * [Click Event Handler](#click-event-handler)
+  * [Inline handler](#inline-handler)
+  * [Key Modifiers](#key-modifiers)
 - [8. Creating Components](#8-creating-components)
+  * [Import](#import)
   * [props](#props)
 - [9. Vue Router](#9-vue-router)
   * [Dynamic Route Matching](#dynamic-route-matching)
@@ -46,7 +49,10 @@
   * [Passing props to Route Components](#passing-props-to-route-components)
 - [10. Slots](#10-slots)
 - [EXTRA](#extra)
+  * [Tricks & Hacks](#tricks--hacks)
   * [Bootstrap](#bootstrap)
+  * [Webpack](#webpack)
+  * [Vuex](#vuex)
 
 <!-- tocstop -->
 
@@ -345,9 +351,30 @@ data: {
 ```
 
 ## 8. Creating Components
+To create a component, copy and Paste another Component & modify: template, script and styles.
+
+### Import
+```ts
+import Header from "@/components/Header.vue";
+```
+```ts
+export default {
+  name: "HelloWorld",
+  components: {
+    Header
+  },
+};
+```
 
 ### props
-(pending)
+> [more](https://vuejs.org/v2/guide/components-props.html)
+```ts
+export default {
+  name: "MainPage",
+  props: {
+    msg: String
+  }
+```
 
 ## 9. Vue Router
 ```bash
