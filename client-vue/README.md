@@ -50,6 +50,9 @@
 - [10. Slots](#10-slots)
 - [EXTRA](#extra)
   * [Tricks & Hacks](#tricks--hacks)
+  * [Sass/SCSS](#sassscss)
+    + [Emprar Sass/SCSS en Components](#emprar-sassscss-en-components)
+    + [Theming](#theming)
   * [Bootstrap](#bootstrap)
   * [Webpack](#webpack)
   * [Vuex](#vuex)
@@ -422,6 +425,9 @@ const router = new VueRouter({
 * [Webpack i SASS: problema amb versió 11 de node-sass: solved](https://exerror.com/typeerror-this-getoptions-is-not-a-function-in-vue-js/)
 
 ### Sass/SCSS
+#### Emprar Sass/SCSS en Components
+> [more](https://cli.vuejs.org/guide/css.html#referencing-assets)
+
 Instal·la,
 ```bash
 npm install -D sass-loader sass
@@ -432,6 +438,13 @@ i en components, empra
 <style lang="scss">
 ...
 ```
+
+#### Theming
+Crear el fitxer `custom.scss` seguint tutorial oficial BS i a `main.js` posar:
+```js
+import "./scss/custom.scss"
+```
+Al fitxer anterior, escriure els _override_ de variables i maps
 
 ### Bootstrap
 Install Bootstrap to use w/ Vue CLI:

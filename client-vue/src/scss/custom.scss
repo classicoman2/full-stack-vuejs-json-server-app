@@ -1,0 +1,9 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+$primary: red;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+// https://stackoverflow.com/questions/54829710/how-to-override-bootstrap-variables-in-vue-workflow-vanilla-bootstrap
