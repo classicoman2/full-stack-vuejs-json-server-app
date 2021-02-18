@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     getPosts: function (filtre) {
-      fetch("http://localhost:3000/posts", { method: "GET" })
+      fetch("http://localhost:5000/posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
           //Hi ha filtre
@@ -103,7 +103,7 @@ export default {
     },
     deletePost: function (id) {
       //Delete from API
-      fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" })
+      fetch(`http://localhost:5000/posts/${id}`, { method: "DELETE" })
         .then((response) => response.json())
         .then(() => {
           //Delete from posts
@@ -132,7 +132,7 @@ export default {
         const json = await responseGet.json();
         // Envia POST
         const post = { title: json.title, contents: json.contents };
-        const responsePost = await fetch("http://localhost:3000/posts", {
+        const responsePost = await fetch("http://localhost:5000/posts", {
           method: "POST",
           body: JSON.stringify(post),
           headers: {
@@ -144,7 +144,7 @@ export default {
         //Actualitza
         posts.push(jsonResposta);
         // Update llistat  xtoni --> DONA ERROR DE FETCH  -- ESTUDIAR PERQUE NO VA BÉ
-        // return fetch("http://localhost:3000/posts");
+        // return fetch("http://localhost:5000/posts");
       }
     },
 

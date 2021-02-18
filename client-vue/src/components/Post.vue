@@ -64,7 +64,7 @@ export default {
   },
   mounted() {
     //captura post i comments
-    fetch("http://localhost:3000/posts/" + this.id)
+    fetch("http://localhost:5000/posts/" + this.id)
       .then((r) => r.json())
       .then((data) => {
         this.post = data;
@@ -95,7 +95,7 @@ export default {
         }
 
         const responsePost = await fetch(
-          "http://localhost:3000/posts/" + post.id,
+          "http://localhost:5000/posts/" + post.id,
           {
             method: "PATCH",
             body: JSON.stringify({
