@@ -13,20 +13,19 @@ server.use(express.static("server/public"))
 server.use(middlewares);
 
 server.get("/", function (req, res) {
-    console.log('xxxxxxxx')
   res.sendFile(path.dirname(path.dirname(__dirname)) + "/public/index.html");
 });
 
-
 server.use(router);
 
-// HEROKU !!!  xtoni
-const port = process.env.PORT || 3000;
+// HEROKU 
+const port = process.env.PORT || 5000;
 
 server.listen(port, () => {
   console.log(`JSON Server is running - http://localhost:${port}`);
 });
 
+//xtoni
+
 //server.use(cors());
 //server.use(express.static("public"));
-

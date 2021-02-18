@@ -77,7 +77,7 @@ export default {
 
     //captura event
     this.$on("filterEvent", () => {
-      console.log("aaa")
+      console.log("aaa");
       //this.filterPosts(valorFiltre);
     });
   },
@@ -89,7 +89,15 @@ export default {
   },
   methods: {
     getPosts: function (filtre) {
-      fetch("http://localhost:5000/posts", { method: "GET" })
+      // Heroku! xtoni  -  Funciona a FIREFOX CHROME encara que posi localhost (no a BRAVE)
+      const url =
+        process.env.NODE_ENV == "production"
+          ? window.location.href + "/posts"
+          : "http://localhost:5000/posts";
+
+          console.log(url)
+
+      fetch(url, { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
           //Hi ha filtre
