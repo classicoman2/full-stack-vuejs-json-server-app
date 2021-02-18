@@ -92,7 +92,7 @@ export default {
       // Heroku! xtoni  -  Funciona a FIREFOX CHROME encara que posi localhost (no a BRAVE)
       const url =
         process.env.NODE_ENV == "production"
-          ? window.location.href + "/posts"
+          ? window.location.href + "posts"
           : "http://localhost:5000/posts";
 
           console.log(url)
