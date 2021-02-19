@@ -42,11 +42,13 @@
   * [Import](#import)
   * [props](#props)
 - [9. Vue Router](#9-vue-router)
+  * [Install](#install)
+  * [Simple Route](#simple-route)
   * [Dynamic Route Matching](#dynamic-route-matching)
     + [Reacting to Params Changes](#reacting-to-params-changes)
   * [Named Routes](#named-routes)
   * [Programatic navigation](#programatic-navigation)
-  * [Passing props to Route Components](#passing-props-to-route-components)
+  * [Nested Routes](#nested-routes)
 - [10. Slots](#10-slots)
 - [EXTRA](#extra)
   * [Tricks & Hacks](#tricks--hacks)
@@ -123,13 +125,13 @@ We can also [bind element attributes](https://vuejs.org/v2/guide/#Declarative-Re
 
 #### v-model: two-way Binding
 [Only with \<input>, \<select> or \<textarea>](https://vuejs.org/v2/api/#v-model) 
-> [more](https://vuejs.org/v2/guide/#Handling-User-Input)
 ```ts
 <div ">
   <p>{{ message }}</p>
   <input v-model="message">
 </div>
 ```
+> [more info](https://vuejs.org/v2/guide/#Handling-User-Input)
 
 ### Template Syntax
 > (ja vist) Text interpolation
@@ -184,12 +186,12 @@ export default {
 
 ## 3. Conditional Rendering
 The block will only be rendered if the directive’s expression returns a truthy value.
-> [more](https://vuejs.org/v2/guide/conditional.html)
 ```ts
 <div id="app-3">
   <span v-if="seen">Now you see me</span>
 </div>
 ```
+> [more info](https://vuejs.org/v2/guide/conditional.html)
 
 ### Conditional groups with template
 ```ts
@@ -218,7 +220,6 @@ The usage is very similar to __v-if__, the difference is that an element with v-
 
 
 ## 4. List Rendering
-> [more](https://vuejs.org/v2/guide/list.html#Maintaining-State)
 
 ### Basic
 ```ts
@@ -226,6 +227,7 @@ The usage is very similar to __v-if__, the difference is that an element with v-
   {{ item.message }}
 </div>
 ```
+> [more info](https://vuejs.org/v2/guide/list.html#Maintaining-State)
 
 ### index Argument
 ```ts
@@ -254,10 +256,8 @@ It is recommended to provide a key attribute with v-for whenever possible for [m
 ```
 
 
-
 ## 5. Computed Properties & Watchers
 ### Computed property
-> More [here](https://vuejs.org/v2/guide/computed.html#Basic-Example)
 
 ```ts
 <template>
@@ -281,6 +281,7 @@ export default {
   }
 }
 ```
+> [more info](https://vuejs.org/v2/guide/computed.html#Basic-Example)
 
 ### Why not use a simple Method?
 
@@ -295,13 +296,13 @@ export default {
 
 ### Watchers
 > Els _Watchers_ permeten reaccionar a canvis en un camp d'entrada
-> [more here](https://vuejs.org/v2/guide/computed.html#Watchers)
+> [more info](https://vuejs.org/v2/guide/computed.html#Watchers)
 
 
 
 ## 6. Class and Style Bindings
 ### Object Syntax
-> [more](https://vuejs.org/v2/guide/class-and-style.html#Object-Syntax)
+> [more info](https://vuejs.org/v2/guide/class-and-style.html#Object-Syntax)
 
 #### Basic
 ```ts
@@ -317,7 +318,6 @@ export default {
 ```
 
 #### Array Syntax
-> [more](https://vuejs.org/v2/guide/class-and-style.html#Array-Syntax)
 ```ts
 <div v-bind:class="[activeClass, errorClass]"></div>
 data: {
@@ -325,6 +325,7 @@ data: {
   errorClass: 'text-danger'
 }
 ```
+> [more info](https://vuejs.org/v2/guide/class-and-style.html#Array-Syntax)
 
 
 ## 7. Events
@@ -345,13 +346,13 @@ data: {
 ```
 
 ### Key Modifiers
-> [more](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
 ```ts
 <!-- Qualsevol tecla>
 <input v-on:keyup="teclaEspitjada">
 <!-- Una tecla en concret>
 <input v-on:keyup.enter="enterKey">
 ```
+> [more info](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
 
 ## 8. Creating Components
 To create a component, copy and Paste another Component & modify: template, script and styles.
@@ -370,7 +371,6 @@ export default {
 ```
 
 ### props
-> [more](https://vuejs.org/v2/guide/components-props.html)
 ```ts
 export default {
   name: "MainPage",
@@ -378,16 +378,48 @@ export default {
     msg: String
   }
 ```
+> [more info](https://vuejs.org/v2/guide/components-props.html)
 
 ## 9. Vue Router
+### Install
 ```bash
 # Install vue router
 npm install vue-router
 # Add router as plugin and modify .js and .vue files implied 
 vue add router
 ```
+
+### Simple Route
+Basta indicar la ruta amb `to`, encara que també es poden emprar 
+```html
+<router-link to="/">Home</router-link>
+```
+
 ### Dynamic Route Matching
+Primer afegim una ruta a l'objecte `routes`,
+```ts
+  routes: [
+    // el segment dinàmic comença amb  :
+    { path: '/post/:id', component: Post },
+  ]
+```
+Després, cream el link a la ruta en el template:
+```html
+<router-link :to="{ name: 'post', params: { id: 10 } }">Post</router-link>
+```
+
+En seguir-se la ruta, dins el component `Post` puc accedir a `id` amb:
+```html
+<div>User {{ $route.params.id }}</div>
+```
+
+Si volem accedir al `id` com a props en el component `Post`, 
+```ts
+{ path: '/post/:id', component: Post, props: true, name: 'post' },
+```
+
 #### Reacting to Params Changes
+Cas particular: En cas de voler reaccionar a un canvi de ruta en el mateix Component que només canvia el paràmetre - ja que les funcions _hook_ del component no s'executaran de nou. Example: passar de la ruta `/post/10` a `/post/24`.
 ```ts
  watch: {
     $route(to, from) {
@@ -395,28 +427,29 @@ vue add router
     }
   }
 ```
+> [more info](https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes)
 
 ### Named Routes
+Se poden donar noms a les rutes i emprar aquest nom per referir-se a elles, en lloc del path
 ```ts
 <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
 ```
-
+> [more info](https://router.vuejs.org/guide/essentials/named-routes.html)
 
 ### Programatic navigation
+Si vull accedir per codi a una ruta, en les mateixes condicions que amb \<router-link>
 ```ts
 router.push({ name: 'user', params: { userId: '123' } })
 ```
 
-### Passing props to Route Components
-```ts
-const router = new VueRouter({
-  routes: [{ path: '/user/:id', component: User }]
-})
-```
+### Nested Routes
+En el cas que volguem crear un router de 2n nivell per un Component, se creen unes subrutes emprant `children`. 
+> [more info](https://router.vuejs.org/guide/essentials/nested-routes.html)
+
 
 ## 10. Slots
 (pending)
-> [more](https://vuejs.org/v2/guide/components-slots.html)
+> [more info](https://vuejs.org/v2/guide/components-slots.html)
 
 ## EXTRA
 
