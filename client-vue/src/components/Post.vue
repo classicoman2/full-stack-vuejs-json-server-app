@@ -72,7 +72,6 @@ export default {
   },
   methods: {
     addComment: function () {
-      //console.log(this.newcomment)
 
       add(this.post, this.newcomment)
         .then((data) => {
@@ -83,12 +82,17 @@ export default {
         );
 
       async function add(post, comment) {
-        //get comments
+        // No hii ha comentaris previs?
         if (post.comments === undefined) {
-          post.comments = [{ user: comment.user, contents: comment.contents }];
+          // Add comment with id 1
+          post.comments = [{ id: 1, user: comment.user, contents: comment.contents }];
           console.log("There are no comments yet");
         } else {
+          // get last id
+          let lastId = post.comments.sort( (a,b) => b.id -  a.id )[0].id
+
           post.comments.push({
+            id: lastId+1,
             user: comment.user,
             contents: comment.contents,
           });
