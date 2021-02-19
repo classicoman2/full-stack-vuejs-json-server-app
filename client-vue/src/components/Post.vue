@@ -21,7 +21,8 @@
     <!-- Print Comments -->
     <table class="table">
       <tr v-for="comment in post.comments" v-bind:key="comment.user">
-        <td>{{ comment.user }}</td> <td> {{ comment.contents }} </td>
+        <td>{{ comment.user }}</td>
+        <td>{{ comment.contents }}</td>
       </tr>
     </table>
     <!-- Write new Comment -->
@@ -63,8 +64,11 @@ export default {
     };
   },
   mounted() {
+    //vuex store
+    const url = this.$store.getters.getAPIurl;
+
     //captura post i comments
-    fetch("http://localhost:5000/posts/" + this.id)
+    fetch(url + "posts/" + this.id)
       .then((r) => r.json())
       .then((data) => {
         this.post = data;
@@ -72,6 +76,8 @@ export default {
   },
   methods: {
     addComment: function () {
+      //vuex store
+      const url = this.$store.getters.getAPIurl;
 
       add(this.post, this.newcomment)
         .then((data) => {
@@ -85,31 +91,30 @@ export default {
         // No hii ha comentaris previs?
         if (post.comments === undefined) {
           // Add comment with id 1
-          post.comments = [{ id: 1, user: comment.user, contents: comment.contents }];
+          post.comments = [
+            { id: 1, user: comment.user, contents: comment.contents },
+          ];
           console.log("There are no comments yet");
         } else {
           // get last id
-          let lastId = post.comments.sort( (a,b) => b.id -  a.id )[0].id
+          let lastId = post.comments.sort((a, b) => b.id - a.id)[0].id;
 
           post.comments.push({
-            id: lastId+1,
+            id: lastId + 1,
             user: comment.user,
             contents: comment.contents,
           });
         }
 
-        const responsePost = await fetch(
-          "http://localhost:5000/posts/" + post.id,
-          {
-            method: "PATCH",
-            body: JSON.stringify({
-              comments: post.comments,
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        );
+        const responsePost = await fetch(url + "posts/" + post.id, {
+          method: "PATCH",
+          body: JSON.stringify({
+            comments: post.comments,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        });
         return await responsePost.json();
       }
     },

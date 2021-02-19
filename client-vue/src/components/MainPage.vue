@@ -32,7 +32,7 @@
             <span>{{ post.contents }}</span>
           </td>
           <td>
-            <router-link :to="{ name: 'post', params: { id: post.id } }"
+            <router-link :to="{ name: 'post', params: { id: String(post.id) }, props:true }"
               >Post</router-link
             >
           </td>
@@ -89,17 +89,9 @@ export default {
   },
   methods: {
     getPosts: function (filtre) {
-      
+      //vuex store
       const url = this.$store.getters.getAPIurl;
 
-      // Heroku! xtoni  -  Funciona a FIREFOX CHROME encara que posi localhost (no a BRAVE)
-      /*
-        process.env.NODE_ENV == "production"
-          ? window.location.href + "posts"
-          : "http://localhost:5000/posts";
-
-          console.log(url)
-*/
       fetch(url + "posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
@@ -113,8 +105,11 @@ export default {
         });
     },
     deletePost: function (id) {
+      //vuex store
+      const url = this.$store.getters.getAPIurl;
+
       //Delete from API
-      fetch(`http://localhost:5000/posts/${id}`, { method: "DELETE" })
+      fetch(`${url}posts/${id}`, { method: "DELETE" })
         .then((response) => response.json())
         .then(() => {
           //Delete from posts
@@ -129,7 +124,7 @@ export default {
     },
 
     addPost: function () {
-      let url =
+      let urlRemot =
         "https://my-json-server.typicode.com/classicoman2/fakeRESTserver/posts";
       // Genera post aleatoriament
       let id = Math.floor(Math.random() * 3) + 1;
@@ -137,13 +132,17 @@ export default {
       // Resolem la promesa amb then
       creaPost(this.posts);
 
+      //vuex store
+      const url = this.$store.getters.getAPIurl;
+
       async function creaPost(posts) {
         // Captura post remot
-        const responseGet = await fetch(url + "/" + id);
+        const responseGet = await fetch(urlRemot + "/" + id);
         const json = await responseGet.json();
-        // Envia POST
+
         const post = { title: json.title, contents: json.contents };
-        const responsePost = await fetch("http://localhost:5000/posts", {
+
+        const responsePost = await fetch(url + "posts", {
           method: "POST",
           body: JSON.stringify(post),
           headers: {
@@ -154,8 +153,6 @@ export default {
         console.info("Post Creat:", jsonResposta);
         //Actualitza
         posts.push(jsonResposta);
-        // Update llistat  xtoni --> DONA ERROR DE FETCH  -- ESTUDIAR PERQUE NO VA BÉ
-        // return fetch("http://localhost:5000/posts");
       }
     },
 

@@ -3,32 +3,17 @@
     {
       "title": "Plou i fa vent",
       "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 1,
+      "id": 1
+    },
+    {
+      "title": "Fa bon dia",
+      "contents": "Avui fa bon dia i fa sol",
+      "id": 2,
       "comments": [
         {
-          "id": 4,
-          "user": "44",
-          "contents": "444444444"
-        },
-        {
-          "id": 3,
-          "user": "3333",
-          "contents": "3333333"
-        },
-        {
-          "id": 2,
-          "user": "22222",
-          "contents": "222222222"
-        },
-        {
           "id": 1,
-          "user": "11",
-          "contents": "111111"
-        },
-        {
-          "id": 5,
-          "user": "adsf",
-          "contents": "fdas fdas fads"
+          "user": "aa",
+          "contents": "aaaa"
         }
       ]
     }
