@@ -89,15 +89,18 @@ export default {
   },
   methods: {
     getPosts: function (filtre) {
+      
+      const url = this.$store.getters.getAPIurl;
+
       // Heroku! xtoni  -  Funciona a FIREFOX CHROME encara que posi localhost (no a BRAVE)
-      const url =
+      /*
         process.env.NODE_ENV == "production"
           ? window.location.href + "posts"
           : "http://localhost:5000/posts";
 
           console.log(url)
-
-      fetch(url, { method: "GET" })
+*/
+      fetch(url + "posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
           //Hi ha filtre

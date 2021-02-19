@@ -1,7 +1,7 @@
 ## TODO
 
 ### Client
-- [ ] Heroku no funciona - 
+- [ ] Heroku - references to local API should be to `window.location.href`
 - [ ] Generacio urls de API, a __getters__ de Vuex, ja que son un codi que hauria de ser GLOBAL
 - [x] _Bootstrap Theming_ amb __Webpack__
 - [x] Filtrar en clicar ENTER en camp de Filtre: és necessari 1) Crear component amb barra navegació (si no es complica molt) i 2) Emprar Programmatic Navigation (Vue Router)
