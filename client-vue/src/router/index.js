@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 import Post from '../components/Post.vue'
+import SignUpForm from '../components/SignUpForm'
 
 Vue.use(VueRouter)
 
@@ -22,8 +23,10 @@ const routes = [
   },
   { path: '/post/:id', component: Post, props: true, name: 'post' },
   //filtres
-  { path: '/filtre/:f', component: Home, props:true, name: 'filtre' }
+  { path: '/filtre/:f', component: Home, props:true, name: 'filtre' },
 
+  //sign up form
+  { path: '/signup', component: SignUpForm, props:false, name: 'signupform'}
 ]
 
 const router = new VueRouter({

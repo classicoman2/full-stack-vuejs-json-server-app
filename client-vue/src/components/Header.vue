@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <button
         class="navbar-toggler"
         type="button"
@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <router-link to="/">Home</router-link>
             </a>
           </li>
@@ -24,28 +24,6 @@
             <a class="nav-link" href="#"
               ><router-link to="/about">About</router-link></a
             >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
         <form @submit.prevent class="form-inline my-2 my-lg-0">
@@ -55,13 +33,20 @@
             placeholder="Search"
             aria-label="Search"
             v-model="valorFiltre"
-            v-on:keyup.enter="filtrarFiles($event)"
+            v-on:keyup.enter="filtrarFiles"
           />
 
           <router-link :to="{ name: 'filtre', params: { f: valorFiltre } }"
             >Filtrar</router-link
           >
         </form>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link">
+              <router-link to="/signup">Sign Up</router-link>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   </header>
@@ -69,8 +54,7 @@
 
 
 <script>
-
-import router from '../router'
+import router from "../router";
 
 export default {
   name: "Header",
@@ -82,10 +66,9 @@ export default {
   },
   methods: {
     filtrarFiles: function () {
-       //Filtrar files cridant a la ruta directament
-       router.push({ name: 'filtre', params: { f: this.valorFiltre } })
-       //  { path: '/filtre/:f', component: Home, props:true, name: 'filtre' }
-
+      //Filtrar files cridant a la ruta directament
+      router.push({ name: "filtre", params: { f: this.valorFiltre } });
+      //  { path: '/filtre/:f', component: Home, props:true, name: 'filtre' }
     },
   },
 };
@@ -93,5 +76,4 @@ export default {
 
 
 <style scoped>
-
 </style>

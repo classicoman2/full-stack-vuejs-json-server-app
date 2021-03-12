@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer mt-auto py-3 bg-light">
+  <footer class="footer mt-4 py-3 bg-dark">
     <div class="container">
       <span class="mx-1">{{ name }}</span
       >-<span class="mx-1">{{ year }}</span>
@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 footer {
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   width: 100%;
   span {
