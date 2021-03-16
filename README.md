@@ -3,7 +3,7 @@
 ## How to
 Start the server, 
 ```bash
-# path: /server
+# path: /
 npm start
 ```
 
