@@ -1,6 +1,6 @@
 # Full Stack Vue.js + Bootstrap 4.5 + json-server/Node.js app
 
-## How to
+## Deployment Mode
 Start the server, 
 ```bash
 # path: /
@@ -11,6 +11,19 @@ Vue serve,
 ```bash
 # path: /client-vue
 npm run serve
+```
+
+## Production mode
+Vue build into /server/public,
+```bash
+# path: /client-vue
+npm run build
+```
+
+Start application
+```bash
+# path: /
+npm start
 ```
 
 ## TODO
