@@ -3,19 +3,17 @@
     {
       "title": "Plou i fa vent",
       "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 1
+      "id": 15
     },
     {
-      "title": "Fa bon dia",
-      "contents": "Avui fa bon dia i fa sol",
-      "id": 2,
-      "comments": [
-        {
-          "id": 1,
-          "user": "aa",
-          "contents": "aaaa"
-        }
-      ]
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 16
+    },
+    {
+      "title": "Fa fred",
+      "contents": "Fan tan de fred que he hagut d'encendre la calefacció",
+      "id": 17
     }
   ]
 }

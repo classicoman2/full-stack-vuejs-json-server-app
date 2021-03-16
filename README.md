@@ -1,6 +1,23 @@
+# Full Stack Vue.js + Bootstrap 4.5 + json-server/Node.js app
+
+## How to
+Start the server, 
+```bash
+# path: /server
+npm start
+```
+
+Vue serve,
+```bash
+# path: /client-vue
+npm run serve
+```
+
 ## TODO
 
 ### Client
+- [ ] Fer un Sign Up form amb `Bootstrap`
+ 
 - [ ] Heroku - references to local API should be to `window.location.href`
 - [ ] Generacio urls de API, a __getters__ de Vuex, ja que son un codi que hauria de ser GLOBAL
 - [x] _Bootstrap Theming_ amb __Webpack__
@@ -17,10 +34,9 @@ BACK: empro [json-server](https://github.com/typicode/json-server) i em baso [en
 Desplegada [aqui](https://vue-json-server-app.herokuapp.com/) 
 
 ## Postman
-[Collection de Postman amb proves en local i en Heroku](https://www.getpostman.com/collections/d3a611a1d40e4ab60ff0)
+[Postman collection with tests in local and remote](https://www.getpostman.com/collections/d3a611a1d40e4ab60ff0)
 
-
-## Com desplegar a HEROKU
+## HEROKU Deployment
 :warning: Basat en [el tutorial basic de HEROKU](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
 
 > 1.Iniciar sessió en Heroku

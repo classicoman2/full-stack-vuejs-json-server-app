@@ -5,13 +5,15 @@ import App from './App.vue'
 //xtoni bootstrap bàsic  +  Jquery + Popper
 
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 // xtoni Bootstrap Theming
 import "./scss/custom.scss"
-import "bootstrap/scss/bootstrap.scss";
+
+//import "bootstrap/scss/bootstrap.scss";
+
 // Bootstrap Icons
 import "bootstrap-icons/font/bootstrap-icons.css"
 
