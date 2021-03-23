@@ -191,29 +191,19 @@ a {
 
 .headers {
   font-weight: 600;
-}
-
-.fila {
   display: flex;
   line-height: 35px;
 }
 
-.fila span:nth-child(1) {
-  width:100px;
+.headers span:nth-child(1) {
+  width: 100px;
 }
-.fila span:nth-child(2) {
-  width:200px;
+.headers span:nth-child(2) {
+  width: 200px;
   text-align: left;
 }
-.fila span:nth-child(3) {
-  width:50%;
+.headers span:nth-child(3) {
+  width: 50%;
   text-align: left;
-}
-.fila span:nth-child(4) {
-  width:100px;
-}
-.fila:hover {
-  background-color: lightgray;
-  cursor: pointer;
 }
 </style>
