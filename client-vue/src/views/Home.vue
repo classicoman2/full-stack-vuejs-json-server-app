@@ -24,12 +24,12 @@
 import Posts from "@/views/posts/Posts";
 
 export default {
+  name: "Home",
   data() {
     return {
       msg: "Welcome to Your Vue.js + Bootstrap 4 App",
     };
   },
-  name: "Home",
   components: {
     Posts,
   },

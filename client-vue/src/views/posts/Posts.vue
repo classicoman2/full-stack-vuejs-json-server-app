@@ -1,53 +1,32 @@
 <template>
   <div class="hello">
-    <button v-on:click="addPost" class="btn btn-primary mb-2">
+    <button v-on:click="addPost" class="btn btn-primary mt-3 mb-2">
       Add Post (with random contents)
     </button>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">
-            Title
-            <i
-              v-on:click="orderPosts('desc')"
-              class="bi bi-arrow-down-square"
-            ></i>
-            <i v-on:click="orderPosts('asc')" class="bi bi-arrow-up-square"></i>
-          </th>
-          <th scope="col">Contents</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Cheat Sheet: maintaining state -->
-        <tr v-for="post in postsUpdated" v-bind:key="post.id">
-          <th scope="row">{{ post.id }}</th>
-          <td>
-            <b>{{ post.title }}</b>
-          </td>
-          <td>
-            <span>{{ post.contents }}</span>
-          </td>
-          <td>
-            <router-link :to="{ name: 'post', params: { id: String(post.id) }, props:true }"
-              >Post</router-link
-            >
-          </td>
-          <td v-on:click="deletePost(post.id)">
-            <i class="bi bi-trash-fill"></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="fila headers">
+      <span>#</span>
+      <span
+        >Title
+        <i v-on:click="orderPosts('desc')" class="bi bi-arrow-down-square"></i>
+        <i v-on:click="orderPosts('asc')" class="bi bi-arrow-up-square"></i>
+      </span>
+      <span>Contents</span>
+    </div>
+    <!-- Cheat Sheet: maintaining state -->
+    <div v-for="post in postsUpdated" :key="post.id">
+      <Post :post="post" />
+    </div>
   </div>
 </template>
 
+
 <script>
+import Post from "@/views/posts/Post.vue";
+
 export default {
   name: "Posts",
+  components: { Post },
   props: {
-    msg: String,
     f: String,
   },
   watch: {
@@ -181,7 +160,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .hello {
   text-align: center;
 }
@@ -201,8 +180,40 @@ a {
   color: #42b983;
 }
 
-td.deletePost,
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
 .bi {
+  cursor:pointer;
+}
+
+.headers {
+  font-weight: 600;
+}
+
+.fila {
+  display: flex;
+  line-height: 35px;
+}
+
+.fila span:nth-child(1) {
+  width:100px;
+}
+.fila span:nth-child(2) {
+  width:200px;
+  text-align: left;
+}
+.fila span:nth-child(3) {
+  width:50%;
+  text-align: left;
+}
+.fila span:nth-child(4) {
+  width:100px;
+}
+.fila:hover {
+  background-color: lightgray;
   cursor: pointer;
 }
 </style>

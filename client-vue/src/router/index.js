@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
-import Post from '../views/posts/Post.vue'
-import SignUpForm from '../views/SignUpForm'
+import viewPost from '@/views/posts/viewPost.vue'
+import SignUpForm from '@/views/SignUpForm'
 
 Vue.use(VueRouter)
 
@@ -21,12 +21,28 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  { path: '/post/:id', component: Post, props: true, name: 'post' },
+  //view Post
+  {
+    path: '/post/:id',
+    component: viewPost,
+    props: true,
+    name: 'viewPost'
+  },
   //filtres
-  { path: '/filtre/:f', component: Home, props:true, name: 'filtre' },
+  {
+    path: '/filtre/:f',
+    component: Home,
+    props: true,
+    name: 'filtre'
+  },
 
   //sign up form
-  { path: '/signup', component: SignUpForm, props:false, name: 'signupform'}
+  {
+    path: '/signup',
+    component: SignUpForm,
+    props: false,
+    name: 'signupform'
+  }
 ]
 
 const router = new VueRouter({
