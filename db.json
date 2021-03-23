@@ -1,43 +1,6 @@
 {
   "posts": [
     {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 15,
-      "comments": [
-        {
-          "id": 4,
-          "user": "fasd",
-          "contents": "fdas"
-        },
-        {
-          "id": 3,
-          "user": "pepe",
-          "contents": "bien"
-        },
-        {
-          "id": 2,
-          "user": "pepe",
-          "contents": "bien"
-        },
-        {
-          "id": 1,
-          "user": "pepe",
-          "contents": "bien"
-        },
-        {
-          "id": 5,
-          "user": "d",
-          "contents": "d"
-        }
-      ]
-    },
-    {
-      "title": "Fa bon dia",
-      "contents": "Avui fa bon dia i fa sol",
-      "id": 18
-    },
-    {
       "title": "Fa bon dia",
       "contents": "Avui fa bon dia i fa sol",
       "id": 19
@@ -48,9 +11,9 @@
       "id": 20
     },
     {
-      "title": "Plou i fa vent",
-      "contents": "M'he aixecat el dematí i fa un vent que toma els arbres",
-      "id": 21
+      "title": "Fa bon dia",
+      "contents": "Avui fa bon dia i fa sol",
+      "id": 22
     }
   ]
 }

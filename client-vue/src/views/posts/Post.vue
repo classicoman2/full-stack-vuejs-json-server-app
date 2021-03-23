@@ -9,7 +9,7 @@
       >Post</router-link
     >
 -->
-    <span v-on:click="deletePost(post.id)">
+    <span @click="deletePost(post.id)">
       <i class="bi bi-trash-fill"></i>
     </span>
     <span @click="mostraPost(post.id)">
@@ -28,6 +28,10 @@ export default {
     mostraPost(id) {
       this.$router.push({ name: "viewPost", params: { id: id } });
     },
+    deletePost(id) {
+        this.$emit('deletepost', id)
+    }
+
   },
 };
 </script>
@@ -36,20 +40,20 @@ export default {
 .fila {
   display: flex;
   line-height: 35px;
+  span {
+    &:nth-child(1) {
+      width: 100px;
+    }
+    &:nth-child(2) {
+      width: 200px;
+      text-align: left;
+    }
+    &:nth-child(3) {
+      width: 50%;
+      text-align: left;
+    }
+  }
 }
-
-.fila span:nth-child(1) {
-  width: 100px;
-}
-.fila span:nth-child(2) {
-  width: 200px;
-  text-align: left;
-}
-.fila span:nth-child(3) {
-  width: 50%;
-  text-align: left;
-}
-
 
 .bi {
   padding: 10px 20px;

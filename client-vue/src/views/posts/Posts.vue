@@ -14,7 +14,7 @@
     </div>
     <!-- Cheat Sheet: maintaining state -->
     <div v-for="post in postsUpdated" :key="post.id">
-      <Post :post="post" />
+      <Post :post="post" @deletepost="deletePost" />
     </div>
   </div>
 </template>
@@ -186,7 +186,7 @@ a {
 }
 
 .bi {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .headers {
