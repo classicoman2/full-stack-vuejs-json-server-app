@@ -1,7 +1,5 @@
 <template>
   <div class="hello">
-    <!-- Cheat Sheet: Template String -->
-    <h1>{{ msg }}</h1>
     <button v-on:click="addPost" class="btn btn-primary mb-2">
       Add Post (with random contents)
     </button>
@@ -47,7 +45,7 @@
 
 <script>
 export default {
-  name: "MainPage",
+  name: "Posts",
   props: {
     msg: String,
     f: String,
