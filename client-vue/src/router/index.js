@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-import Post from '../components/Post.vue'
-import SignUpForm from '../components/SignUpForm'
+import Post from '../views/Post.vue'
+import SignUpForm from '../views/SignUpForm'
 
 Vue.use(VueRouter)
 

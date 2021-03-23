@@ -41,7 +41,7 @@ footer {
   bottom: 0;
   width: 100%;
   span {
-    color: blue !important;
+    color: crimson;
   }
 }
 </style>
