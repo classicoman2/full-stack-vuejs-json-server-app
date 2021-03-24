@@ -354,6 +354,32 @@ data: {
 ```
 > [more info](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
 
+### Customized Events
+#### No params
+> Emit event
+```ts
+this.$emit(deleteAll)
+```
+> Capture event
+```html
+<Post :post="post" @deletepost="deleteAllPosts" />
+```
+
+#### With params
+> Emit event
+```ts
+this.$emit('deletepost', id)
+```
+> Capture event
+```html
+<Post :post="post" @deletepost="deletePostNow" />
+```
+and in the method,
+```ts
+deletePostNow: function (id) {
+```
+
+
 ## 8. Creating Components
 To create a component, copy and Paste another Component & modify: template, script and styles.
 
