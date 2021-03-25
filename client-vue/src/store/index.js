@@ -28,10 +28,14 @@ export default new Vuex.Store({
         },
         // API base url
         getAPIurl: state => {
-            if (process.env.NODE_ENV == "production")  //Heroku
-              return window.location.href
+
+            console.log("url de la web:", window.location.href.split("://")[1].split(":")[0])
+
+            if (window.location.href.split("://")[1].split(":")[0] === "localhost")  //Heroku
+                return state.APIbaseUrl
             else
-              return state.APIbaseUrl
+                return window.location.href.split("/#")[0]
         }
     }
+
 })
