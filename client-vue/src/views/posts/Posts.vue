@@ -13,9 +13,22 @@
       <span>Contents</span>
     </div>
     <!-- Cheat Sheet: maintaining state -->
-    <div v-for="post in postsUpdated" :key="post.id">
+    <div v-for="post in postsToShow" :key="post.id">
       <Post :post="post" @deletepost="deletePost" />
     </div>
+    <nav aria-label="Page navigation" class="mt-4 ml-4">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" @click="changePage(-1)">Previous</a>
+        </li>
+        <li v-for="link in numPagesLinks" :key="link" class="page-item">
+          <a class="page-link" href="#" @click="changePage(link)">{{ link }}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" @click="changePage(-2)">Next</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -29,6 +42,16 @@ export default {
   props: {
     f: String,
   },
+  data: () => {
+    return {
+      posts: [],
+      //Pagination
+      start: 0,
+      inc: 0,
+      numPages: 0,
+      numPagesLinks: [],
+    };
+  },
   watch: {
     $route(to, from) {
       console.info("to = ", to);
@@ -38,37 +61,55 @@ export default {
       this.getPosts(filtre);
     },
   },
-  data: () => {
-    return {
-      posts: [],
-    };
-  },
+
+  // Propietats Computades
   computed: {
-    postsUpdated: function () {
-      return this.posts;
+    postsToShow() {
+      // Show only the posts that fit between start and inc
+      return this.posts.slice(this.start, this.start + this.inc);
+    },
+    updateNavigationButtons() {
+      return 1;
     },
   },
   mounted() {
-    // Carrega posts
-    this.getPosts(" ");
+    //vuex store
+    const url = this.$store.getters.getAPIurl;
 
-    //captura event
+    //Pagination initialize
+    this.start = this.$store.state.pagination.start;
+    this.inc = this.$store.state.pagination.inc;
+
+    // Carrega posts
+    fetch(url + "posts", { method: "GET" })
+      .then((response) => response.json())
+      .then((data) => {
+        this.posts = data;
+
+        //Get number of pages & Links
+        this.numPages = Math.floor(this.posts.length / this.inc);
+        //Si hi ha residu --> -1 pagina
+        if (this.numPages * this.inc < this.posts.length) this.numPages++;
+
+        console.log("numpages = ", this.numPages);
+
+        // Array de descr de botons de navegacio --> v-for
+        for (let i = 1; i <= this.numPages; i++) this.numPagesLinks.push(i);
+
+        console.log(this.numPagesLinks);
+      });
+
+    //captura event  xtoni ????? que fa aixo??
     this.$on("filterEvent", () => {
       console.log("aaa");
       //this.filterPosts(valorFiltre);
     });
   },
-  beforeUpdated() {
-    //this.getPosts();
-  },
-  updated() {
-    //this.getPosts();
-  },
+
   methods: {
-    getPosts: function (filtre) {
+    getPosts(filtre) {
       //vuex store
       const url = this.$store.getters.getAPIurl;
-
       fetch(url + "posts", { method: "GET" })
         .then((response) => response.json())
         .then((data) => {
@@ -81,7 +122,8 @@ export default {
             );
         });
     },
-    deletePost: function (id) {
+
+    deletePost(id) {
       //vuex store
       const url = this.$store.getters.getAPIurl;
 
@@ -100,7 +142,7 @@ export default {
         });
     },
 
-    addPost: function () {
+    addPost() {
       let urlRemot =
         "https://my-json-server.typicode.com/classicoman2/fakeRESTserver/posts";
       // Genera post aleatoriament
@@ -133,7 +175,7 @@ export default {
       }
     },
 
-    orderPosts: function (order) {
+    orderPosts(order) {
       let returned = 0;
       if (order == "desc") returned = -1;
       else if (order == "asc") returned = 1;
@@ -152,8 +194,28 @@ export default {
       //  console.log(this.posts);
     },
 
-    filterPosts: function (filtre) {
+    filterPosts(filtre) {
       this.posts.filter((post) => post.title.indexOf(filtre) != -1);
+    },
+
+    changePage(page) {
+      //Back
+      if (page == -1) {
+        if (this.start) {
+          this.start -= this.inc;
+        }
+        return;
+      }
+      //Forward
+      if (page == -2) {
+        if (this.start + this.inc < this.posts.length) {
+          this.start += this.inc;
+        }
+        return;
+      }
+
+      //change start
+      this.start = this.inc * page - this.inc;
     },
   },
 };
