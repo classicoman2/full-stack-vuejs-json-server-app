@@ -1,36 +1,10 @@
 # Full Stack Vue.js + Bootstrap 4.5 + json-server/Node.js app
 
-## Deployment Mode
-Start the server, 
-```bash
-# path: /
-npm start
-```
 
-Vue serve,
-```bash
-# path: /client-vue
-npm run serve
-```
 
-## Production mode
-Vue build into /server/public,
-```bash
-# path: /client-vue
-npm run build
-```
-
-Start application
-```bash
-# path: /
-npm start
-```
-
-## TODO
 
 ### Client
 - [ ] Fer un Sign Up form amb `Bootstrap`
- 
 - [ ] Heroku - references to local API should be to `window.location.href`
 - [ ] Generacio urls de API, a __getters__ de Vuex, ja que son un codi que hauria de ser GLOBAL
 - [x] _Bootstrap Theming_ amb __Webpack__

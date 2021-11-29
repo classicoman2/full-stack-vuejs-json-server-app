@@ -11,7 +11,7 @@ export default new Vuex.Store({
     // Basic data
     footerData: {
       year: 2021,
-      name: "Classicoman",
+      name: "@classicoman",
     },
 
     count: 0,

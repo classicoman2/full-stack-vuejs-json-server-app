@@ -10,38 +10,37 @@
 
 <script>
 export default {
-  name: "Footer",
+  name: 'Footer',
   props: {},
   data: function () {
     return {
-      name: "",
+      name: '',
       year: 0,
-    };
+    }
   },
 
   //Using vuex
   mounted: function () {
-    this.name = this.$store.getters.getName;
-    this.year = this.$store.getters.getYear;
-
+    this.name = this.$store.getters.getName
+    this.year = this.$store.getters.getYear
     /*
     this.$store.commit("increment");
-    this.$store.commit("increment");
-
-    console.log(this.$store.state.count); // -> 1
     */
   },
-};
+}
 </script>
 
 
 <style lang="scss">
 footer {
-  /*position: fixed;*/
-  bottom: 0;
-  width: 100%;
-  span {
-    color: crimson;
+  .container {
+    margin: 0px 20px;
+    /*position: fixed;*/
+    bottom: 0;
+    width: 100%;
+    span {
+      color: crimson;
+    }
   }
 }
 </style>

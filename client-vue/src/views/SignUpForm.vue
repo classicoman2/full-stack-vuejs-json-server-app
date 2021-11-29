@@ -88,17 +88,10 @@
       <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="same-address" />
         <label class="custom-control-label" for="same-address"
-          >By creating an account, you agree our Conditions of Use and Privacy
-          Notice.</label
+          >By creating an account, you agree our Conditions of Use and Privacy Notice.</label
         >
       </div>
-      <button
-        class="btn btn-primary btn-lg mt-4"
-        type="submit"
-        v-on:click="registerUser"
-      >
-        Register
-      </button>
+      <button class="btn btn-primary btn-lg mt-4" type="submit" v-on:click="registerUser">Register</button>
     </form>
   </div>
 </template>
@@ -106,82 +99,82 @@
 
 <script>
 export default {
-  name: "SignUpForm",
+  name: 'SignUpForm',
   props: {},
   data: () => {
     return {
       data: {
-        firstName: "",
-        lastName: "",
-        username: "",
-        email: "",
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
       },
-    };
+    }
   },
   methods: {
     registerUser: function () {
       //Check name
-      let isFormValidated = true;
+      let isFormValidated = true
 
       if (!this.validFirstName()) {
-        document.getElementById("firstName").classList.add("is-invalid");
-        isFormValidated = false;
+        document.getElementById('firstName').classList.add('is-invalid')
+        isFormValidated = false
       }
       if (!this.validLastName()) {
-        document.getElementById("lastName").classList.add("is-invalid");
-        isFormValidated = false;
+        document.getElementById('lastName').classList.add('is-invalid')
+        isFormValidated = false
       }
 
       if (!this.validEmail()) {
-        document.getElementById("email").classList.add("is-invalid");
-        isFormValidated = false;
+        document.getElementById('email').classList.add('is-invalid')
+        isFormValidated = false
       }
 
       if (isFormValidated) {
         //xtoni
-        console.log(JSON.stringify(this.data));
+        console.log(JSON.stringify(this.data))
       } else {
-        console.log("Some fields are missing/incorrect");
+        console.log('Some fields are missing/incorrect')
       }
     },
 
     validFirstName: function () {
-      return this.validText(this.data.firstName);
+      return this.validText(this.data.firstName)
     },
 
     validLastName: function () {
-      return this.validText(this.data.lastName);
+      return this.validText(this.data.lastName)
     },
 
     validUsername: function () {
       //xtoni
-      return true;
+      return true
     },
 
     validEmail: function () {
       //https://stackoverflow.com/questions/5601647/html5-email-input-pattern-attribute
-      let pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+      let pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
 
-      console.warn(pattern.test(this.data.email));
+      console.warn(pattern.test(this.data.email))
 
-      return pattern.test(this.data.email);
+      return pattern.test(this.data.email)
     },
 
     // Text is a name or a surname
     validText: function (text) {
-      let pattern = /[a-zA-Z]{5,}/g;
+      let pattern = /[a-zA-Z]{5,}/g
       // Mirar si és un first name valid
-      return pattern.test(text);
+      return pattern.test(text)
     },
   },
   mounted: function () {
     //By default, no error is shown in the form fields
-    document.getElementById("firstName").classList.remove("is-invalid");
-    document.getElementById("lastName").classList.remove("is-invalid");
-    document.getElementById("username").classList.remove("is-invalid");
-    document.getElementById("email").classList.remove("is-invalid");
+    document.getElementById('firstName').classList.remove('is-invalid')
+    document.getElementById('lastName').classList.remove('is-invalid')
+    document.getElementById('username').classList.remove('is-invalid')
+    document.getElementById('email').classList.remove('is-invalid')
   },
-};
+}
 </script>
 
 <style scoped>
