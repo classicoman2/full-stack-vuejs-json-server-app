@@ -62,22 +62,22 @@
 <!-- tocstop -->
 
 ## 1. Start
-Instal·la Vue,
+Instal·la Vue en el teu ordinador.
 ```
 sudo npm install -g @vue/cli
 ```
-Crea aplicacio vue cli,
+Crea una aplicació Vue.js. **Tria la versió 3!**
 ```
-vue create nomcarpetaprojecte
+vue create nomprojecte
 ```
 ### Docs
 >[Vue.js](https://vuejs.org/) | [Vue CLI](https://cli.vuejs.org/guide/) | [Vue Router](https://router.vuejs.org/)
 
-### Extensions
-* [__Vetur__ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+### Extensions per VSC
+* [__Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
 * __Vue.js Devtools__ for [Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) and [Mozilla](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
-## 2. Basics
+## 2. BASIC
 
 ### Declarative Rendering
 
@@ -526,4 +526,8 @@ npm install vuex --save
 ```
 
 
-
+## VERSIO DE PRODUCCIÓ
+La versió de producció [es pot visualitzar abans de pujar-la al servidor]() emprant
+```bashhttps://cli.vuejs.org/guide/deployment.html#general-guidelines
+serve -s dist
+```
