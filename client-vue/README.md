@@ -510,12 +510,7 @@ Install Bootstrap to use w/ Vue CLI:
 ```bash
 # BS CSS i js
 npm i bootstrap
-# Popper i JQuery
-(pendent)
-```
-- [Més Info](https://travishorn.com/adding-bootstrap-to-a-vue-cli-project-98c2a30e0ed0)
 
-### Webpack
 
 
 ### Vuex
